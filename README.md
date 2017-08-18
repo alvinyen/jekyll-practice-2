@@ -119,3 +119,24 @@
                         <p>copyright @ AlvinYen</p>
                     </footer>
             ```
+
+<hr>
+
+### [ 6. adding CSS ]
+- adding the css directory in project
+- adding the link tag in html file in header
+- make sure the url link is best for both local and github
+    - `<link href="{{site.baseurl}}/css/main.css" rel="stylesheet>`
+- ![](https://placehold.it/15/f03c15/000000?text=+) it needs to place two lines of three dashes to make Jekyll compiling the main scss file
+    - ex: /css/main.scss
+        ```
+        ---
+        ---
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        ...
+        ...
+        ```
