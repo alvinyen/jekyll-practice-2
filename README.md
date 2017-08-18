@@ -119,7 +119,19 @@
                         <p>copyright @ AlvinYen</p>
                     </footer>
             ```
-
+- 5.2 parameter of includes system // optional
+    - in the specify file using includes system
+        ```
+            ...
+                {% include nav.html parameterName='parameterValue' %}
+            ...
+        ```
+    - in the file which in _includes directory // common code snippets
+        ```
+            ...
+                <ul class="nav {{ include.parameterName }}"></ul>
+            ...
+        ```
 <hr>
 
 ### [ 6. adding CSS ]
