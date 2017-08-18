@@ -77,3 +77,12 @@
             </body>
             ...
         ```
+- 4.3. using baseurl to make sure put the correct url in the browser's url bar
+    - whenever want to link to any page on website, it's always best to put `{{ site.baseurl}}` in link url
+    - update href's value in a tag in navigation with `{{ site.baseurl }}`
+        ```
+            ...
+            <li><a href="{{site.baseurl}}/index.html">Index Page</a></li>
+            <li><a href="{{site.baseurl}}/news.html">News Page</a></li>
+            ...
+        ```
