@@ -24,4 +24,39 @@
 - _site folder is the final version of jekyll website
 - but it will always be regenerated when the project content be chenged
 - so it shouldn't push to GitHub, that means the _site folder need to be ignored in the .gitignore file in the project
-    
+
+<hr>
+
+### [ 4. _layout"s" folder ]
+- 4.1. using _layouts folder
+    - the concept of _layouts folder is just like the master page
+    - put the common stuff like header and footer in /_layouts/default.html (remain the unique stuff in each file like index.html), then set up sort of a placeholder so Jekyll knows where to put that unique information from index.html.
+    - but jekyll  need to know which master page to use, so it needs to put some information (yaml frontmatter) at the top of the unique file like index.html , so Jekyll knows which master file to use.
+    - check the final source of combination with /_layouts/default.html and /index.html
+    - ex:
+        ```
+            <!-- master file -->
+            <!-- /_layouts/default.html -->
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    ....
+                </head>
+                <body>
+
+                    {{ content }}
+
+                </body>
+            </html>
+        ```
+        ```
+            <!-- unique file -->
+            <!-- /index.html -->
+            --- <!-- three dashes at the top of file that called yaml frontmatter -->
+            layout: default
+            ---
+            
+            <!-- some unique stuffs below -->
+            <h1> jekyll-practice-2 </h1>
+            <p> some unique contents </p>
+        ```
