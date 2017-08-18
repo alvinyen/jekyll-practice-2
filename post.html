@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<h2>Post Page</h2>
+
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <h3>{{post.title}}</h3>
+        <h4>{{post.meta}}</h4>
+    </li>
+    {% endfor %}
+</ul>
