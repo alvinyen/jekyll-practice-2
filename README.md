@@ -140,3 +140,18 @@
         ...
         ...
         ```
+
+<hr>
+
+### [ 7. jekyll if condition ]
+- `{% if ${condition} %} content when the condition match {% endif %}`
+- `page.url` parameter which similar to `site`
+- ex: 7.1. highlighting navigation
+    - /_includes/nav.html
+        ```
+            <nav>
+                <ul><a href="{{site.baseurl}}/index.html" class="{% if page == '/' %}current{% endif %}">Index Page</a></ul>
+                ...
+                ...
+            <nav>
+        ```
