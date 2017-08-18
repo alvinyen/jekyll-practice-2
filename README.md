@@ -17,4 +17,11 @@
 
 ### [ 2. running jekyll server in project at local ]
 - `jekyll serve --watch --baseurl ""`
+
+<hr>
+
+### [ 3. about _site folder and  ]
+- _site folder is the final version of jekyll website
+- but it will always be regenerated when the project content be chenged
+- so it shouldn't push to GitHub, that means the _site folder need to be ignored in the .gitignore file in the project
     
