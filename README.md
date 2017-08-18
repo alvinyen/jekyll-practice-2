@@ -60,3 +60,20 @@
             <h1> jekyll-practice-2 </h1>
             <p> some unique contents </p>
         ```
+- 4.2. add news.html and navigation in /_layouts/default.html
+    - /layouts/default.html
+        ```
+            ...
+            <body>
+                ...
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Index Page</a></li>
+                        <li><a href="news.html">News Page</a></li>
+                    </ul>
+                </nav>
+
+                {{ content }}
+            </body>
+            ...
+        ```
