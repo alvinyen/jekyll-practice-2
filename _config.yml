@@ -1,0 +1,3 @@
+markdown: redcarpet
+baseurl: /jekyll-practice-2
+excluce: ['README.md', '.gitignore']
