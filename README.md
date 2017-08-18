@@ -77,7 +77,7 @@
             </body>
             ...
         ```
-- 4.3. using baseurl to make sure put the correct url in the browser's url bar
+- 4.3. using baseurl (`{{site.baseurl}}`) to make sure put the correct url in the browser's url bar
     - whenever want to link to any page on website, it's always best to put `{{ site.baseurl}}` in link url
     - update href's value in a tag in navigation with `{{ site.baseurl }}`
         ```
@@ -86,3 +86,36 @@
             <li><a href="{{site.baseurl}}/news.html">News Page</a></li>
             ...
         ```
+
+<hr>
+
+### [ 5. using includes feature to share snitppets of code between different locations on pages ]
+- includes feature in jekyll
+    - snippets of code that will be using in differents files in project
+    - ex: nav
+- jekyll is all about reducing duplication 
+- the changes in content just need to update one file
+- 5.1. put the nav snippet code in _includes folder
+    - ex:
+        - /_includes/nav.html
+            ```
+                <nav>
+                    <ul><a href="{{site.baseurl}}/index.html">Index Page</a></ul>
+                    <ul><a href="{{site.baseurl}}/news.html">News Page</a></ul>
+                </nav>
+            ```
+        - /_layouts/default.html
+            ```
+                <body>
+                    <header>
+                        <h1>...</h1>
+                        {% include nav.html %}
+                    <header>
+                    ...
+                    ...
+                    ...
+                    <footer>
+                        {% include nav.html %}
+                        <p>copyright @ AlvinYen</p>
+                    </footer>
+            ```

@@ -7,15 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>jekyll-practice-2</h1>
-
-    <nav>
-        <ul>
-            <li><a href="{{site.baseurl}}/index.html">Index Page</a></li>
-            <li><a href="{{site.baseurl}}/news.html">News Page</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>jekyll-practice-2</h1>
+        {% include nav.html %}
+    </header>
 
     {{ content }}
+
+    <footer>
+        {% include nav.html %}
+        copyright @ alvinyen in 2017
+    </footer>
 </body>
 </html>
