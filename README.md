@@ -86,6 +86,7 @@
             <li><a href="{{site.baseurl}}/news.html">News Page</a></li>
             ...
         ```
+- 4.4. pls check below for more notes about nested layout
 
 <hr>
 
@@ -158,15 +159,21 @@
 ### [ 7. jekyll if condition ]
 - `{% if ${condition} %} content when the condition match {% endif %}`
 - `page.url` parameter which similar to `site`
+- using `contains` operator to compare strings
+- using `or` and other logical operator to specify the comparing of logic
 - ex: 7.1. highlighting navigation
     - /_includes/nav.html
         ```
             <nav>
-                <ul><a href="{{site.baseurl}}/index.html" class="{% if page == '/' %}current{% endif %}">Index Page</a></ul>
+                <ul><a href="{{site.baseurl}}/index.html" class="{% if page.url == '/' %}current{% endif %}">Index Page</a></ul>
                 ...
                 ...
             <nav>
         ```
+- ex: 7.2. using `or` logical operator and `contains` operator to compare strings
+    ```
+        ... class="{% if page.url == '/' or page.url contains 'testCategory2' %}current{% endif %}"
+    ```
 
 <hr>
 
@@ -200,3 +207,66 @@
         ```
 - limiting the post loop using limit attribute
     - `{% for post in site.categories.customCategory limit:2 %}`
+
+<hr>
+
+### [ 9. nested layout、sub navigation ]
+- has layout extends other layouts
+- uses nested layout to add the sub navigation 
+- ex:
+    - /_posts/post.html // sub navigation here in this layout file
+        ```
+            ---
+            layout: default
+            ---
+
+            <ul>
+                <li><a href="testCategory1.html">Test Category1</></li>
+                <li><a href="testCategory2.html">Test Category2</a></li>
+            </ul>
+
+            <h2>Post Page{{ page.url }}</h2>
+
+            {{ content }}
+        ```
+    - /testCategory1.html
+        ```
+            ---
+            layout: post
+            ---
+
+            <ul>
+                {% for post in site.categories.testCategory1 %}
+                    <li>
+                        <h3> {{ post.title }} </h3>
+                        <h4> {{ post.meta }} </h4>
+                    </li>
+                {% endfor %}
+            </ul>
+        ```
+    - /testCategory2.html
+        ```
+            ---
+            layout: post
+            ---
+
+            <ul>
+                {% for post in site.categories.testCategory2 %}
+                    <li>
+                        <h3> {{ post.title }} </h3>
+                        <h4> {{ post.meta }} </h4>
+                    </li>
+                {% endfor %}
+            </ul>
+        ```
+    - /_includes/nav.html
+        ```
+            <nav>git 
+                <ul class="{{ include.navSize }}">
+                    ...
+                    ...
+                    <!-- subnavigation's default route -->
+                    <li><a href="{{site.baseurl}}/testCategory1.html" class="{% if page.url == '/testCategory1.html' || page.url contains 'testCategory2' %} current {% endif %}">Post Page</a></li>
+                </ul>
+            </nav>
+        ```
