@@ -3,7 +3,7 @@ layout: news-article
 title: Clouds mapped on extrasolar planet Kepler-7b
 meta: Exometeorologists have managed to create a map of the clouds on a planet outside our solar system for the first time.
 source: http://www.wired.co.uk/news/archive/2013-10/06/exoclouds
-category: news
+category: testCategory1
 ---
 
 Exometeorologists have managed to create a map of the clouds on a planet outside our solar system for the first time.

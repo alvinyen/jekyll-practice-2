@@ -167,3 +167,36 @@
                 ...
             <nav>
         ```
+
+<hr>
+
+### [ 8. post system and looping in jekyll ]
+- in each markdown file
+    - some yaml frontmatters at the top of file
+        - ![](https://i.imgur.com/aGyQ701.png)
+    - you can specify any data field you want, then you can access the data field by `site.posts` and `post.customDataField` in any location at the project.
+- loop tag in Jekyll
+    - ex:  // `{{site.posts}}`、`{{post.customDataField}}`
+    ```
+        <ul>
+            {% for post in site.posts %}
+                <li>
+                    <a href=""> {{ post.title }} </a>
+                    <p> {{ post.meta }} </p>
+                </li>
+            {% endfor %}
+        </ul>
+    ```
+- post categories
+    - Jekyll doesn't care the name of a category directory, it more cares about the category date field at the top of markdown file.
+    - access the category data through `site.categor"ies".categoryName`
+        ```
+            {% for post in site.categories.customCategory  %}
+                <li>
+                    <h3> {{ post.title }} </h3>
+                    <h4> {{ post.meta }} </h4>
+                </li>
+            {% endfor %}
+        ```
+- limiting the post loop using limit attribute
+    - `{% for post in site.categories.customCategory limit:2 %}`
